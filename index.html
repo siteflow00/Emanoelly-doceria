@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doceria da Emanoelly | Brigadeiros Gourmet em Quirinópolis</title>
+<meta name="description" content="Brigadeiros gourmet feitos com amor em Quirinópolis - GO. Sabores Tradicional, Leite Ninho e Doce de Leite. Peça pelo WhatsApp!">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --chocolate:#4a2511;
+    --chocolate-claro:#7b3f1d;
+    --rosa:#f06292;
+    --rosa-claro:#fce4ec;
+    --creme:#fff8f0;
+    --dourado:#d4a24c;
+    --branco:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins',sans-serif;background:var(--creme);color:var(--chocolate);overflow-x:hidden}
+  a{text-decoration:none;color:inherit}
+
+  /* ===== MENU ===== */
+  header{position:fixed;top:0;width:100%;z-index:100;background:rgba(74,37,17,.95);backdrop-filter:blur(8px);box-shadow:0 2px 15px rgba(0,0,0,.2)}
+  nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+  .logo{font-family:'Pacifico',cursive;font-size:1.6rem;color:var(--rosa-claro)}
+  .logo span{color:var(--rosa)}
+  .menu{display:flex;gap:28px;list-style:none}
+  .menu a{color:var(--creme);font-weight:400;transition:.3s;position:relative}
+  .menu a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--rosa);transition:.3s}
+  .menu a:hover{color:var(--rosa)}
+  .menu a:hover::after{width:100%}
+  .hamburguer{display:none;background:none;border:none;color:var(--creme);font-size:1.8rem;cursor:pointer}
+
+  /* ===== INÍCIO ===== */
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 20px 60px;
+    background:radial-gradient(circle at 20% 30%,rgba(240,98,146,.25),transparent 40%),
+               radial-gradient(circle at 80% 70%,rgba(212,162,76,.25),transparent 40%),
+               linear-gradient(135deg,var(--chocolate) 0%,var(--chocolate-claro) 100%);color:var(--creme)}
+  .hero-conteudo{max-width:1200px;width:100%;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  .selo{display:inline-block;background:var(--rosa);color:#fff;padding:6px 18px;border-radius:30px;font-size:.85rem;font-weight:600;margin-bottom:18px}
+  .hero h1{font-family:'Pacifico',cursive;font-size:3.6rem;line-height:1.2;margin-bottom:18px}
+  .hero h1 span{color:var(--rosa)}
+  .hero p{font-size:1.15rem;opacity:.9;margin-bottom:30px;max-width:520px}
+  .botoes{display:flex;gap:15px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 32px;border-radius:40px;font-weight:600;transition:.3s;border:none;cursor:pointer;font-size:1rem;font-family:inherit}
+  .btn-rosa{background:var(--rosa);color:#fff;box-shadow:0 8px 20px rgba(240,98,146,.4)}
+  .btn-rosa:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(240,98,146,.6)}
+  .btn-contorno{border:2px solid var(--creme);color:var(--creme)}
+  .btn-contorno:hover{background:var(--creme);color:var(--chocolate)}
+
+  /* Brigadeiros desenhados com CSS */
+  .hero-imagem{display:flex;justify-content:center;align-items:center;position:relative;height:380px}
+  .brigadeiro{border-radius:50%;position:absolute;animation:flutuar 4s ease-in-out infinite;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+  .brigadeiro::before{content:'';position:absolute;inset:0;border-radius:50%;
+    background-image:radial-gradient(circle,#fff 1.5px,transparent 2px),radial-gradient(circle,var(--rosa) 1.5px,transparent 2px);
+    background-size:14px 14px,18px 18px;background-position:0 0,7px 9px;opacity:.55}
+  .b1{width:200px;height:200px;background:radial-gradient(circle at 35% 30%,#8b4a24,#3a1a08);z-index:3}
+  .b2{width:140px;height:140px;background:radial-gradient(circle at 35% 30%,#fffdf5,#e8dcc5);left:8%;top:12%;animation-delay:1s}
+  .b3{width:140px;height:140px;background:radial-gradient(circle at 35% 30%,#e0a86a,#a8662c);right:8%;bottom:10%;animation-delay:2s}
+  .b2::before,.b3::before{opacity:.35}
+  @keyframes flutuar{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+
+  /* ===== SEÇÕES ===== */
+  section{padding:90px 20px}
+  .container{max-width:1200px;margin:auto}
+  .titulo{text-align:center;margin-bottom:55px}
+  .titulo h2{font-family:'Pacifico',cursive;font-size:2.7rem;color:var(--chocolate)}
+  .titulo p{color:var(--chocolate-claro);margin-top:8px}
+  .titulo .linha{width:80px;height:4px;background:var(--rosa);margin:14px auto 0;border-radius:4px}
+
+  /* ===== CARDÁPIO ===== */
+  .cardapio{background:var(--rosa-claro)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+  .card{background:#fff;border-radius:25px;padding:35px 25px;text-align:center;box-shadow:0 10px 30px rgba(74,37,17,.1);transition:.4s;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(74,37,17,.2)}
+  .card .tag{position:absolute;top:18px;right:-35px;background:var(--dourado);color:#fff;padding:5px 40px;transform:rotate(45deg);font-size:.75rem;font-weight:700}
+  .card-doce{width:120px;height:120px;border-radius:50%;margin:0 auto 22px;position:relative;box-shadow:0 12px 25px rgba(0,0,0,.25)}
+  .card-doce::before{content:'';position:absolute;inset:0;border-radius:50%;
+    background-image:radial-gradient(circle,#fff 1.3px,transparent 1.8px);background-size:12px 12px;opacity:.5}
+  .doce-trad{background:radial-gradient(circle at 35% 30%,#8b4a24,#3a1a08)}
+  .doce-ninho{background:radial-gradient(circle at 35% 30%,#fffdf5,#e8dcc5)}
+  .doce-ninho::before{background-image:radial-gradient(circle,#d4a24c 1.3px,transparent 1.8px)!important}
+  .doce-leite{background:radial-gradient(circle at 35% 30%,#e0a86a,#a8662c)}
+  .card h3{font-size:1.5rem;margin-bottom:10px}
+  .card p{color:#7a5a48;font-size:.95rem;margin-bottom:18px;min-height:66px}
+  .preco{font-size:1.8rem;font-weight:700;color:var(--rosa);margin-bottom:18px}
+  .preco small{font-size:.85rem;color:#999;font-weight:400}
+  .quantidade{display:flex;justify-content:center;align-items:center;gap:15px}
+  .quantidade button{width:40px;height:40px;border-radius:50%;border:none;background:var(--chocolate);color:#fff;font-size:1.3rem;cursor:pointer;transition:.3s}
+  .quantidade button:hover{background:var(--rosa);transform:scale(1.1)}
+  .quantidade span{font-size:1.3rem;font-weight:700;min-width:30px}
+
+  /* Resumo do pedido */
+  .resumo{margin-top:50px;background:var(--chocolate);color:var(--creme);border-radius:25px;padding:35px;text-align:center;box-shadow:0 15px 35px rgba(74,37,17,.3)}
+  .resumo h3{font-family:'Pacifico',cursive;font-size:1.8rem;margin-bottom:15px}
+  #lista-pedido{margin-bottom:15px;opacity:.9;min-height:24px}
+  .total{font-size:2rem;font-weight:700;color:var(--rosa);margin-bottom:20px}
+  .resumo input{width:100%;max-width:420px;padding:13px 18px;border-radius:30px;border:none;margin-bottom:20px;font-family:inherit;font-size:1rem}
+
+  /* ===== COMO PEDIR ===== */
+  .passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
+  .passo{text-align:center;padding:30px 20px}
+  .passo .numero{width:75px;height:75px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--dourado));color:#fff;font-size:2rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 10px 25px rgba(240,98,146,.4)}
+  .passo h3{margin-bottom:8px}
+  .passo p{color:#7a5a48}
+
+  /* ===== SOBRE ===== */
+  .sobre{background:linear-gradient(135deg,var(--chocolate),var(--chocolate-claro));color:var(--creme)}
+  .sobre .titulo h2{color:var(--creme)}
+  .sobre .titulo p{color:var(--rosa-claro)}
+  .sobre-texto{max-width:800px;margin:auto;text-align:center;font-size:1.1rem;line-height:1.9}
+  .destaques{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px;margin-top:50px}
+  .destaque{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:25px;text-align:center;transition:.3s}
+  .destaque:hover{background:rgba(240,98,146,.2);transform:translateY(-5px)}
+  .destaque .icone{font-size:2.5rem;margin-bottom:10px}
+
+  /* ===== DEPOIMENTOS ===== */
+  .depoimentos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+  .depoimento{background:#fff;padding:30px;border-radius:20px;box-shadow:0 8px 25px rgba(74,37,17,.08);border-left:5px solid var(--rosa)}
+  .estrelas{color:var(--dourado);font-size:1.2rem;margin-bottom:10px}
+  .depoimento p{font-style:italic;color:#7a5a48;margin-bottom:15px}
+  .depoimento strong{color:var(--chocolate)}
+
+  /* ===== CONTATO ===== */
+  .contato{background:var(--rosa-claro)}
+  .contato-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:35px;align-items:stretch}
+  .info{background:#fff;border-radius:25px;padding:35px;box-shadow:0 10px 30px rgba(74,37,17,.1)}
+  .info-item{display:flex;gap:15px;margin-bottom:25px;align-items:flex-start}
+  .info-item .icone{font-size:1.8rem;background:var(--rosa-claro);width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .info-item h4{margin-bottom:3px}
+  .info-item p{color:#7a5a48}
+  .mapa{border-radius:25px;overflow:hidden;box-shadow:0 10px 30px rgba(74,37,17,.1);min-height:380px}
+  .mapa iframe{width:100%;height:100%;min-height:380px;border:0}
+
+  /* ===== RODAPÉ ===== */
+  footer{background:var(--chocolate);color:var(--creme);text-align:center;padding:40px 20px}
+  footer .logo{font-size:2rem;margin-bottom:10px;display:inline-block}
+  footer p{opacity:.8;font-size:.9rem}
+
+  /* ===== BOTÃO WHATSAPP ===== */
+  .whats-flutuante{position:fixed;bottom:25px;right:25px;width:65px;height:65px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(37,211,102,.5);z-index:99;animation:pulsar 2s infinite}
+  .whats-flutuante svg{width:36px;height:36px;fill:#fff}
+  @keyframes pulsar{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+  /* ===== ANIMAÇÃO AO ROLAR ===== */
+  .revelar{opacity:0;transform:translateY(40px);transition:all .8s ease}
+  .revelar.ativo{opacity:1;transform:translateY(0)}
+
+  /* ===== CELULAR ===== */
+  @media(max-width:850px){
+    .hamburguer{display:block}
+    .menu{position:absolute;top:100%;left:0;width:100%;flex-direction:column;background:var(--chocolate);align-items:center;gap:0;max-height:0;overflow:hidden;transition:max-height .4s}
+    .menu.aberto{max-height:400px}
+    .menu li{padding:15px 0;width:100%;text-align:center;border-top:1px solid rgba(255,255,255,.1)}
+    .hero-conteudo{grid-template-columns:1fr;text-align:center}
+    .hero p{margin:0 auto 30px}
+    .botoes{justify-content:center}
+    .hero h1{font-size:2.6rem}
+    .hero-imagem{height:300px}
+    .b1{width:160px;height:160px}
+    .b2,.b3{width:105px;height:105px}
+    .contato-grid{grid-template-columns:1fr}
+    .titulo h2{font-size:2.2rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- MENU -->
+<header>
+  <nav>
+    <a href="#inicio" class="logo">Doceria da <span>Emanoelly</span></a>
+    <button class="hamburguer" onclick="abrirMenu()" aria-label="Abrir menu">☰</button>
+    <ul class="menu" id="menu">
+      <li><a href="#inicio" onclick="fecharMenu()">Início</a></li>
+      <li><a href="#cardapio" onclick="fecharMenu()">Cardápio</a></li>
+      <li><a href="#como-pedir" onclick="fecharMenu()">Como Pedir</a></li>
+      <li><a href="#sobre" onclick="fecharMenu()">Sobre</a></li>
+      <li><a href="#contato" onclick="fecharMenu()">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- INÍCIO -->
+<section class="hero" id="inicio">
+  <div class="hero-conteudo">
+    <div>
+      <span class="selo">🍫 Feito à mão com amor</span>
+      <h1>Brigadeiros <span>Gourmet</span> que derretem na boca</h1>
+      <p>Doces artesanais feitos com ingredientes selecionados em Quirinópolis - GO. Escolha seu sabor favorito e peça agora pelo WhatsApp!</p>
+      <div class="botoes">
+        <a href="#cardapio" class="btn btn-rosa">Ver Cardápio</a>
+        <a href="https://wa.me/5564981175571?text=Olá%20Emanoelly!%20Quero%20fazer%20um%20pedido%20de%20brigadeiros%20🍫" target="_blank" class="btn btn-contorno">Falar no WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-imagem">
+      <div class="brigadeiro b2"></div>
+      <div class="brigadeiro b1"></div>
+      <div class="brigadeiro b3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CARDÁPIO -->
+<section class="cardapio" id="cardapio">
+  <div class="container">
+    <div class="titulo revelar">
+      <h2>Nosso Cardápio</h2>
+      <p>Escolha a quantidade de cada sabor e monte o seu pedido</p>
+      <div class="linha"></div>
+    </div>
+
+    <div class="cards">
+      <div class="card revelar">
+        <span class="tag">CLÁSSICO</span>
+        <div class="card-doce doce-trad"></div>
+        <h3>Tradicional</h3>
+        <p>O clássico brigadeiro de chocolate, cremoso e com granulado especial.</p>
+        <div class="preco">R$ 3,50 <small>/unid.</small></div>
+        <div class="quantidade">
+          <button onclick="alterar('tradicional',-1)">−</button>
+          <span id="qtd-tradicional">0</span>
+          <button onclick="alterar('tradicional',1)">+</button>
+        </div>
+      </div>
+
+      <div class="card revelar">
+        <span class="tag">FAVORITO</span>
+        <div class="card-doce doce-ninho"></div>
+        <h3>Leite Ninho</h3>
+        <p>Suave e irresistível, feito com leite Ninho de verdade. Sucesso garantido!</p>
+        <div class="preco">R$ 3,50 <small>/unid.</small></div>
+        <div class="quantidade">
+          <button onclick="alterar('ninho',-1)">−</button>
+          <span id="qtd-ninho">0</span>
+          <button onclick="alterar('ninho',1)">+</button>
+        </div>
+      </div>
+
+      <div class="card revelar">
+        <span class="tag">ESPECIAL</span>
+        <div class="card-doce doce-leite"></div>
+        <h3>Doce de Leite</h3>
+        <p>O sabor mineiro que conquista todo mundo, cremoso e marcante.</p>
+        <div class="preco">R$ 3,50 <small>/unid.</small></div>
+        <div class="quantidade">
+          <button onclick="alterar('doceleite',-1)">−</button>
+          <span id="qtd-doceleite">0</span>
+          <button onclick="alterar('doceleite',1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="resumo revelar">
+      <h3>🛒 Seu Pedido</h3>
+      <div id="lista-pedido">Nenhum brigadeiro escolhido ainda 😊</div>
+      <div class="total">Total: R$ <span id="total">0,00</span></div>
+      <input type="text" id="nome-cliente" placeholder="Digite seu nome">
+      <br>
+      <button class="btn btn-rosa" onclick="enviarPedido()">Enviar Pedido pelo WhatsApp 💬</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMO PEDIR -->
+<section id="como-pedir">
+  <div class="container">
+    <div class="titulo revelar">
+      <h2>Como Pedir</h2>
+      <p>É simples, rápido e delicioso!</p>
+      <div class="linha"></div>
+    </div>
+    <div class="passos">
+      <div class="passo revelar">
+        <div class="numero">1</div>
+        <h3>Escolha os sabores</h3>
+        <p>Selecione a quantidade de cada brigadeiro no cardápio.</p>
+      </div>
+      <div class="passo revelar">
+        <div class="numero">2</div>
+        <h3>Envie o pedido</h3>
+        <p>Clique no botão e seu pedido chega pronto no nosso WhatsApp.</p>
+      </div>
+      <div class="passo revelar">
+        <div class="numero">3</div>
+        <h3>Combine a entrega</h3>
+        <p>Acertamos juntos a forma de pagamento e a entrega ou retirada.</p>
+      </div>
+      <div class="passo revelar">
+        <div class="numero">4</div>
+        <h3>Aproveite!</h3>
+        <p>Agora é só saborear cada mordida. 😋</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="titulo revelar">
+      <h2>Sobre Nós</h2>
+      <p>Um pedacinho de carinho em cada doce</p>
+      <div class="linha"></div>
+    </div>
+    <div class="sobre-texto revelar">
+      <p>Olá! Eu sou a <strong>Emanoelly</strong> e cada brigadeiro que sai da minha cozinha é feito à mão, com muito amor e ingredientes de qualidade. A Doceria nasceu da paixão por adoçar a vida das pessoas, seja em uma festa, em um presente especial ou naquela vontade de comer um docinho no meio da semana. 💕</p>
+    </div>
+    <div class="destaques">
+      <div class="destaque revelar"><div class="icone">🍫</div><h4>Ingredientes Selecionados</h4></div>
+      <div class="destaque revelar"><div class="icone">👩‍🍳</div><h4>Feito à Mão</h4></div>
+      <div class="destaque revelar"><div class="icone">🎉</div><h4>Ideal para Festas</h4></div>
+      <div class="destaque revelar"><div class="icone">🎁</div><h4>Ótimo para Presentear</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="titulo revelar">
+      <h2>Quem Provou, Amou</h2>
+      <p>Veja o que nossos clientes dizem</p>
+      <div class="linha"></div>
+    </div>
+    <div class="depoimentos-grid">
+      <div class="depoimento revelar">
+        <div class="estrelas">★★★★★</div>
+        <p>"O de Leite Ninho é simplesmente o melhor que já comi! Encomendei para o aniversário da minha filha e todo mundo amou."</p>
+        <strong>— Cliente satisfeita</strong>
+      </div>
+      <div class="depoimento revelar">
+        <div class="estrelas">★★★★★</div>
+        <p>"Brigadeiro cremoso, no ponto certo e muito bem caprichado. Virei cliente fiel!"</p>
+        <strong>— Cliente satisfeito</strong>
+      </div>
+      <div class="depoimento revelar">
+        <div class="estrelas">★★★★★</div>
+        <p>"O de doce de leite é de outro mundo! Atendimento super atencioso."</p>
+        <strong>— Cliente satisfeita</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contato" id="contato">
+  <div class="container">
+    <div class="titulo revelar">
+      <h2>Contato e Localização</h2>
+      <p>Estamos esperando o seu pedido!</p>
+      <div class="linha"></div>
+    </div>
+    <div class="contato-grid">
+      <div class="info revelar">
+        <div class="info-item">
+          <div class="icone">📱</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/5564981175571" target="_blank">(64) 98117-5571</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icone">📍</div>
+          <div>
+            <h4>Endereço</h4>
+            <p>Rua Wilson Barbosa, nº 164<br>Bairro Municipal<br>Quirinópolis - GO</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icone">👩‍🍳</div>
+          <div>
+            <h4>Responsável</h4>
+            <p>Emanoelly</p>
+          </div>
+        </div>
+        <a href="https://wa.me/5564981175571?text=Olá%20Emanoelly!%20Quero%20fazer%20um%20pedido%20🍫" target="_blank" class="btn btn-rosa" style="width:100%;text-align:center">Chamar no WhatsApp</a>
+      </div>
+      <div class="mapa revelar">
+        <iframe src="https://www.google.com/maps?q=Rua+Wilson+Barbosa,+164,+Municipal,+Quirinópolis+-+GO&output=embed" loading="lazy" allowfullscreen title="Mapa da Doceria"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <div class="logo">Doceria da <span>Emanoelly</span></div>
+  <p>Brigadeiros Gourmet • Quirinópolis - GO</p>
+  <p>© 2025 Todos os direitos reservados • Feito com 💕</p>
+</footer>
+
+<!-- BOTÃO WHATSAPP -->
+<a href="https://wa.me/5564981175571?text=Olá%20Emanoelly!%20Vim%20pelo%20site%20e%20quero%20fazer%20um%20pedido%20🍫" class="whats-flutuante" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2.1 7.8L.4 31.6l8-2.1c2.3 1.3 4.9 1.9 7.6 1.9 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.4c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.8 1.2 1.3-4.6-.3-.5C3.7 20.7 3 18.4 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 12.8-13 12.8zm7.1-9.6c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.8-.6-.7-.9-.7h-.7c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.3 2.7 4.2 6.6 5.9.9.4 1.7.6 2.2.8.9.3 1.8.3 2.5.2.8-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
+</a>
+
+<script>
+  // ===== CONFIGURAÇÃO DOS PRODUTOS (altere os preços aqui) =====
+  const produtos = {
+    tradicional: { nome: "Tradicional",   preco: 3.50, qtd: 0 },
+    ninho:       { nome: "Leite Ninho",   preco: 3.50, qtd: 0 },
+    doceleite:   { nome: "Doce de Leite", preco: 3.50, qtd: 0 }
+  };
+  const WHATSAPP = "5564981175571";
+
+  function formatar(valor){
+    return valor.toFixed(2).replace(".", ",");
+  }
+
+  function alterar(id, valor){
+    produtos[id].qtd = Math.max(0, produtos[id].qtd + valor);
+    document.getElementById("qtd-" + id).textContent = produtos[id].qtd;
+    atualizarResumo();
+  }
+
+  function atualizarResumo(){
+    let total = 0, linhas = [];
+    for (const id in produtos){
+      const p = produtos[id];
+      if (p.qtd > 0){
+        const subtotal = p.qtd * p.preco;
+        total += subtotal;
+        linhas.push(`${p.qtd}x ${p.nome} — R$ ${formatar(subtotal)}`);
+      }
+    }
+    document.getElementById("lista-pedido").innerHTML =
+      linhas.length ? linhas.join("<br>") : "Nenhum brigadeiro escolhido ainda 😊";
+    document.getElementById("total").textContent = formatar(total);
+  }
+
+  function enviarPedido(){
+    let total = 0, itens = "";
+    for (const id in produtos){
+      const p = produtos[id];
+      if (p.qtd > 0){
+        total += p.qtd * p.preco;
+        itens += `• ${p.qtd}x ${p.nome} — R$ ${formatar(p.qtd * p.preco)}\n`;
+      }
+    }
+    if (!itens){
+      alert("Escolha pelo menos um brigadeiro antes de enviar o pedido! 🍫");
+      return;
+    }
+    const nome = document.getElementById("nome-cliente").value.trim();
+    let msg = `Olá, Emanoelly! 🍫\nGostaria de fazer um pedido:\n\n${itens}\n*Total: R$ ${formatar(total)}*`;
+    if (nome) msg += `\n\nMeu nome: ${nome}`;
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
+  }
+
+  // ===== MENU NO CELULAR =====
+  function abrirMenu(){ document.getElementById("menu").classList.toggle("aberto"); }
+  function fecharMenu(){ document.getElementById("menu").classList.remove("aberto"); }
+
+  // ===== ANIMAÇÃO AO ROLAR A PÁGINA =====
+  const observador = new IntersectionObserver(entradas => {
+    entradas.forEach(e => { if (e.isIntersecting) e.target.classList.add("ativo"); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll(".revelar").forEach(el => observador.observe(el));
+</script>
+</body>
+</html>
